@@ -1,13 +1,13 @@
 #include <stdio.h>
 
 /**
- * main - prints size
+ * main - main prints size
  * 
  * Return: 0 when succesfull
  */
 
-int main(void)
+int main(void) 
 {
 	printf("with proper grammar, but the outcome is a piece of art,\n");
-	return (0)
+	return(0);
 }
