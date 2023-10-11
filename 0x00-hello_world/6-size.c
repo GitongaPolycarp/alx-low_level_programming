@@ -15,5 +15,6 @@ int main(void)
 	printf("Size of char: %zu\n", sizeof(char));
 	printf("Size of short: %zu\n", sizeof(short));
 	printf("Size of long long: %zu\n", sizeof(long long));
+	printf("Size of long double: %zu\n", sizeof(long double));
 	return (0);
 }
