@@ -23,6 +23,6 @@ void times_table(void)
 			}
 			printf("%2d, ", result);
 		}
-		printf("/n");
+		printf("\n");
 	}
 }
