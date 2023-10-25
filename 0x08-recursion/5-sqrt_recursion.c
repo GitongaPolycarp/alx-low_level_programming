@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * _sqrt_a - returns the natural square root of a number
+ * sqrt_a - returns the natural square root of a number
  * @a: input number
  * @b: iterator
  * Return: the square root or -1
