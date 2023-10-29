@@ -1,29 +1,45 @@
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
+#include <string.h>
 
 /**
  * main - adds positve number
  * @argc: count
- * @argv: array
+ * @argv: vector
  * Return: 0
  */
 int main(int argc, char *argv[])
 {
-	int i, j, add = 0;
+	int i;
+	unsigned int j, add = 0;
+	char *e;
 
-	for (i = 1; i < argc; i++)
+	if (argc > 1)
 	{
-		for (j = 0; argv[i][j] != '\0'; j++)
+
+		for (i = 1; i < argc; i++)
 		{
-			if (!isdigit(argv[i][j]))
+			e = argv[i];
+
+			for (j = 0; j < strlen(e); j++)
 			{
-				printf("Error\n");
-				return (1);
+				if (e[j] < 48 || e[j] > 57)
+				{
+					printf("Error\n");
+					return (1);
+				}
 			}
+			add += atoi(e);
+			e++;
 		}
-		add += atoi (argv[i]);
+
+		printf("%d\n", add);
 	}
-	printf("%d\n", add);
+	else
+	{
+		printf("0\n");
+	}
+
 	return (0);
 }
