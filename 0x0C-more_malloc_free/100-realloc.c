@@ -7,7 +7,7 @@
  * @old_size: size
  * @new_size: new size
  *
- * Return: void
+ * Return: pointer to the real located mem block, or NULL if fails
  */
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
@@ -42,8 +42,9 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 
 	for (i = 0; i < old_size && i < new_size; i++)
 	{
-		n[i] = ((char *) ptr[i];
+		n[i] = ((char *) ptr)[i];
 	}
+
 	free(ptr);
 	return (n);
 }
