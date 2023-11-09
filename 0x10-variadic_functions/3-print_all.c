@@ -8,10 +8,10 @@
 void print_all(const char * const format, ...)
 {
 	va_list spc;
-	unsigned int i = 0;
+	int i = 0;
 	char *str;
 	char ch;
-	float flt;
+	double flt;
 	int num;
 
 	va_start(spc, format);
@@ -19,6 +19,7 @@ void print_all(const char * const format, ...)
 	{
 		if (i > 0)
 			printf(", ");
+
 		switch (format[i])
 		{
 			case 'i':
@@ -26,7 +27,7 @@ void print_all(const char * const format, ...)
 				printf("%d", num);
 				break;
 			case 'f':
-				flt = va_arg(spc, int);
+				flt = va_arg(spc, double);
 				printf("%f", flt);
 				break;
 			case 'c':
@@ -45,6 +46,8 @@ void print_all(const char * const format, ...)
 		}
 		i++;
 	}
-	printf(" ");
+
 	va_end(spc);
+
+	printf("\n");
 }
