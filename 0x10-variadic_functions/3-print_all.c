@@ -2,52 +2,48 @@
 
 /**
  * print_all - function prints anything
- * @format: argument specifier
+ * i@format: argument specifier
  * Return: any argument vector given based on format specifier
  */
 void print_all(const char * const format, ...)
 {
-	va_list spc;
-	int i = 0;
+	int i, check_stat = 0;
+
 	char *str;
-	char ch;
-	double flt;
-	int num;
+	va_list num;
 
-	va_start(spc, format);
-	while (format && format[i])
+	va_start(num, format);
+	i = 0;
+	while (format != NULL && format[i] != '\0')
 	{
-		if (i > 0)
-			printf(", ");
-
 		switch (format[i])
 		{
 			case 'i':
-				num = va_arg(spc, int);
-				printf("%d", num);
+				printf("%d", va_arg(num, int));
+				check_stat = 0;
 				break;
 			case 'f':
-				flt = va_arg(spc, double);
-				printf("%f", flt);
+				printf("%f", va_arg(num, double));
+				check_stat = 0;
 				break;
 			case 'c':
-				ch = va_arg(spc, int);
-				printf("%c", ch);
+				printf("%c", va_arg(num, int));
+				check_stat = 0;
 				break;
 			case 's':
-				str = va_arg(spc, char *);
+				str = va_arg(num, char *);
 				if (str == NULL)
-					printf("(nil)");
-				else
-					printf("%s", str);
+					str = "(nil)";
+				printf("%s", str);
 				break;
 			default:
+				check_stat = 1;
 				break;
 		}
+		if (format[i + 1] != '\0' && check_stat == 0)
+			printf(", ");
 		i++;
 	}
-
-	va_end(spc);
-
 	printf("\n");
+	va_end(num);
 }
