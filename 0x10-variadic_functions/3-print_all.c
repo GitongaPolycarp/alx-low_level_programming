@@ -7,7 +7,7 @@
  */
 void print_all(const char * const format, ...)
 {
-	int i, check_stat = 0;
+	int i, check_stat;
 
 	char *str;
 	va_list num;
@@ -44,6 +44,6 @@ void print_all(const char * const format, ...)
 			printf(", ");
 		i++;
 	}
-	printf("\n");
+	printf(" ");
 	va_end(num);
 }
