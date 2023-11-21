@@ -7,15 +7,15 @@
  */
 size_t print_listint(const listint_t *h)
 {
-	size_t p = 0;
+	size_t node = 0;
 
 	if (h == NULL)
 		return (0);
-	for (p = 0; h != NULL; p++)
+	for (node = 0; h != NULL; node++)
 	{
 		printf("%d\n", h->n);
 		h = h->next;
 	}
 
-	return (p);
+	return (node);
 }
